@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "748641296029",
+    "firebase_url": "https://cupped-lightning.firebaseio.com",
+    "project_id": "cupped-lightning",
+    "storage_bucket": "cupped-lightning.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748641296029:android:d10a11b4bc72ce2efd7e74",
+        "android_client_info": {
+          "package_name": "com.example.cupped_lightning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748641296029-3jfsjnake8b8b6suij6p95nurobbqmki.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvCLimd4EaQ1gZEJbZqOxVoV_R51l5f4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748641296029-3jfsjnake8b8b6suij6p95nurobbqmki.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
