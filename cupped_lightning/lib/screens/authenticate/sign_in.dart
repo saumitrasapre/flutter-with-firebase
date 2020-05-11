@@ -2,6 +2,9 @@ import 'package:cupped_lightning/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
+
+  final Function toggleFunc;
+  SignIn({this.toggleFunc});
   @override
   _SignInState createState() => _SignInState();
 }
@@ -22,6 +25,17 @@ class _SignInState extends State<SignIn> {
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
         title: Text('Sign In'),
+        actions: <Widget>[
+          FlatButton.icon(
+            onPressed: (){
+              widget.toggleFunc();
+            },
+             icon: Icon(
+               Icons.person_add
+             ),
+              label: Text('Register')
+              )
+        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical:20.0 ,horizontal:50.0) ,

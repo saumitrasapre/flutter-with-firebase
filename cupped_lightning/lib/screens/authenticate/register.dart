@@ -2,6 +2,10 @@ import 'package:cupped_lightning/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
+
+  final Function toggleFunc;
+  Register({this.toggleFunc});
+
   @override
   _RegisterState createState() => _RegisterState();
 }
@@ -22,6 +26,17 @@ class _RegisterState extends State<Register> {
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
         title: Text('Sign Up'),
+        actions: <Widget>[
+          FlatButton.icon(
+            onPressed: (){
+              widget.toggleFunc();
+            },
+             icon: Icon(
+               Icons.person
+             ),
+              label: Text('Sign In')
+              )
+        ],
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical:20.0 ,horizontal:50.0) ,
