@@ -1,27 +1,27 @@
 import 'package:cupped_lightning/services/auth.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _SignInState createState() => _SignInState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SignInState extends State<SignIn> {
-  @override
-  Widget build(BuildContext context) {
+class _RegisterState extends State<Register> {
 
    final AuthService _authService= AuthService();
-   //text field state
+
+  //text field state
    String email=' ';
    String password=' ';
-  
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
-        title: Text('Sign In'),
+        title: Text('Sign Up'),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical:20.0 ,horizontal:50.0) ,
@@ -50,30 +50,12 @@ class _SignInState extends State<SignIn> {
                   print(password);
                 },
                 color: Colors.pink,
-                child: Text('Sign In'),
+                child: Text('Register'),
                 ),
               
             ],
             )
           )
-        /*RaisedButton(
-          onPressed: () async{
-
-            dynamic result =await _authService.signInAnonymous();
-
-            if(result==null)
-            {
-              print("Error Signing In");
-            }
-            else
-            {
-              print("Sign In Successful");
-              //print(result.uid);
-            }
-
-          },
-          child: Text('Sign In Anonymously'),
-        ),*/
       ),
     );
   }
