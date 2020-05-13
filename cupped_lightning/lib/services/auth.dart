@@ -46,13 +46,7 @@ class AuthService{
   }
 
 
-  //sign in with username and password
-
-
-  //register with usernaame and password
-
-
-  //sign out 
+  
 
   Future signOut() async{
     
