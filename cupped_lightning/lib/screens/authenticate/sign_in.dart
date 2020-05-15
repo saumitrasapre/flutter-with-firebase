@@ -87,7 +87,8 @@ class _SignInState extends State<SignIn> {
 
           },
           child: Text('Sign In Anonymously'),
-        ),*/
+        ),
+        */
       ),
     );
   }
