@@ -8,17 +8,15 @@ class SignIn extends StatefulWidget {
   @override
   _SignInState createState() => _SignInState();
 }
-
+//text field state
+   String email=' ';
+   String password=' ';
 class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
 
    final AuthService _authService= AuthService();
-   //text field state
-   String email=' ';
-   String password=' ';
   
-
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
@@ -45,7 +43,10 @@ class _SignInState extends State<SignIn> {
               SizedBox(height: 20.0),
               TextFormField(
                 onChanged: (value){
-                  email=value;
+                  setState(() {
+                    email=value;
+                  });
+                  
                 },
 
               ),
@@ -53,7 +54,10 @@ class _SignInState extends State<SignIn> {
               TextFormField(
                 obscureText: true,
                 onChanged: (value){
-                  password=value;
+                  setState(() {
+                    password=value;
+                  });
+                  
                 },
               ),
               SizedBox(height: 20.0),
@@ -66,6 +70,7 @@ class _SignInState extends State<SignIn> {
                 color: Colors.pink,
                 child: Text('Sign In'),
                 ),
+                
               
             ],
             )
