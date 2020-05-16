@@ -1,26 +1,30 @@
 import 'package:cupped_lightning/services/auth.dart';
+import 'package:cupped_lightning/shared/constants.dart';
+import 'package:cupped_lightning/shared/loading.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
 
   final Function toggleFunc;
   Register({this.toggleFunc});
-
   @override
   _RegisterState createState() => _RegisterState();
 }
-//text field state
+
+class _RegisterState extends State<Register> {
+
+  //text field state
    String email='';
    String password='';
    String error='';
-class _RegisterState extends State<Register> {
+   bool loading=false;
 
    final AuthService _authService= AuthService();
    final _formKey=GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading? Loading() : Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
         backgroundColor: Colors.grey[850],
@@ -46,6 +50,8 @@ class _RegisterState extends State<Register> {
             children: <Widget>[
               SizedBox(height: 20.0),
               TextFormField(
+
+                decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 validator: (value){
                   if(value.isEmpty)
                   {
@@ -65,6 +71,7 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                decoration: textInputDecoration.copyWith(hintText: 'Password'),
                 obscureText: true,
                 validator: (value){
                   if(value.length<6)
@@ -88,10 +95,14 @@ class _RegisterState extends State<Register> {
                 {
                   if(_formKey.currentState.validate())
                   {
+                    setState(() {
+                      loading=true;
+                    });
                     dynamic result= await _authService.registerWithEmailAndPassword(email, password);
                     if(result==null)
                     {
                       setState(() {
+                        loading=false;
                         error='Registration failed';
                       });
                     }
