@@ -1,7 +1,6 @@
 import 'package:cupped_lightning/models/cup.dart';
 import 'package:cupped_lightning/screens/home/cup_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 
 class CupList extends StatefulWidget {
@@ -13,7 +12,7 @@ class _CupListState extends State<CupList> {
   @override
   Widget build(BuildContext context) {
 
-    final cups=Provider.of<List<Cup>>(context);
+    final cups=Provider.of<List<Cup>>(context)??[];
     //print(cups.documents);
     // cups.forEach((cup) { 
 

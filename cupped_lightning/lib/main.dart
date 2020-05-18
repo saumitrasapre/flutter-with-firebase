@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
 
         value: AuthService().user,
           child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Wrapper(),
         theme: ThemeData(
     // Define the default brightness and colors.

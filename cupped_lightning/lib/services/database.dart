@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cupped_lightning/models/cup.dart';
+import 'package:cupped_lightning/models/user.dart';
 
 class DatabaseService{
   final String uid;
@@ -37,6 +38,24 @@ class DatabaseService{
       (QuerySnapshot snapshot){
         return _cupListFromSnapshot(snapshot);
       });
+  }
+
+  //user data from snapshot
+  UserData _userDataFromSnapshot(DocumentSnapshot snapshot){
+
+    return UserData(
+      uid: uid,
+      name: snapshot.data['name'],
+      sugars: snapshot.data['sugars'],
+      strength: snapshot.data['strength']);
+  }
+  
+
+  //get user data stream
+  Stream <UserData> get userData{
+    return cupCollection.document(uid).snapshots().map((value){
+      return(_userDataFromSnapshot(value));
+    });
   }
 
 }

@@ -1,5 +1,6 @@
 import 'package:cupped_lightning/models/cup.dart';
 import 'package:cupped_lightning/screens/home/cup_list.dart';
+import 'package:cupped_lightning/screens/home/settings_form.dart';
 import 'package:cupped_lightning/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cupped_lightning/services/database.dart';
@@ -18,7 +19,7 @@ class Home extends StatelessWidget {
       builder: (context){
         return Container(
           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-          child: Text('Bottom Sheet'),
+          child: SettingsForm(),
         );
       }
       );
@@ -48,18 +49,25 @@ class Home extends StatelessWidget {
              ),
              ),
            ),
-           FlatButton.icon(
+           IconButton(
              onPressed: (){
                _showSettingsPanel();
              },
              icon: Icon(
                Icons.settings
              ),
-              label: Text('Settings')
               )
         ],
         ),
-        body: CupList(),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/coffee_bg_2.png'),
+              fit: BoxFit.cover
+            )
+          ),
+          child: CupList()
+          ),
       ),
     );
   }
